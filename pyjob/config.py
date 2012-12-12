@@ -16,8 +16,8 @@ def get_qsub_params(config):
     
     qsub_params = {'concurrent_jobs': 20,
                    'threads': 1,
-                   'queue': 'all.q'
-                   'log_dir': expanduser('~')}
+                   'queue': 'all.q',
+                   'log_dir': expanduser('~'),}
     for name in config:
         if name == 'concurrent_jobs':
             qsub_params[name] = int(config[name])
