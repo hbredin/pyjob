@@ -20,9 +20,14 @@
 
 import numpy as np
 
-class Choices(object):
+class Choice(object):
+    
+    @classmethod
+    def from_cfg(cls, config):
+        return cls(config)
+    
     def __init__(self, choices):
-        super(Choices, self).__init__()
+        super(Choice, self).__init__()
         assert isinstance(choices, list), \
                "%r is not a list" % choices
         self.choices = choices
@@ -36,7 +41,12 @@ class Choices(object):
     def __getitem__(self, key):
         return self.choices[key]
 
-class Range(Choices):
+class Range(object):
+    
+    @classmethod
+    def from_cfg(cls, config):
+        return cls(config[0], config[1], config[2])
+    
     def __init__(self, start, stop, step):
         choices = list(np.arange(start, stop, step))
         super(Range, self).__init__(choices)

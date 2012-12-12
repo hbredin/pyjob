@@ -5,14 +5,17 @@
 #$ -q $queue
 #$ -pe threaded $threads
 #$ -V
+#$ -o $log_dir
+#$ -j y
 
 from pyjob import Grid
 from pyjob import CommandTemplate
+from pyjob.config import read_configuration_file
 import os
-import sys
-import subprocess
 
-execfile('$config')
+# execfile('$config')
+_, grid_params = read_configuration_file('$config')
+
 grid_search = Grid(grid_params)
 this_job_params = grid_search[int(os.environ['SGE_TASK_ID'])-1]
 

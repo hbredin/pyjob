@@ -22,6 +22,7 @@ import sys, os
 from tempfile import mkstemp
 import pkg_resources
 from template import QSubTemplate
+from config import read_configuration_file
 import subprocess
 
 class Grid(object):
@@ -54,17 +55,17 @@ if __name__ == "__main__":
     
     # read configuration file
     config = sys.argv[1]
-    execfile(config)
-    if 'queue' not in qsub_params:
-        qsub_params['queue'] = 'all.q'
-    if 'job_name' not in qsub_params:
-        qsub_params['job_name'] = 'my_job'
-    if 'concurrent_jobs' not in qsub_params:
-        qsub_params['concurrent_jobs'] = 20
-    if 'threads' not in qsub_params:
-        qsub_params['threads'] = 1
-    # TODO -- replace by this below:
-    # grid_params, qsub_params = read_configuration_file(config)
+    
+    # execfile(config)
+    # if 'queue' not in qsub_params:
+    #     qsub_params['queue'] = 'all.q'
+    # if 'job_name' not in qsub_params:
+    #     qsub_params['job_name'] = 'my_job'
+    # if 'concurrent_jobs' not in qsub_params:
+    #     qsub_params['concurrent_jobs'] = 20
+    # if 'threads' not in qsub_params:
+    #     qsub_params['threads'] = 1
+    qsub_params, grid_params = read_configuration_file(config)
     
     qsub_params['python'] = sys.executable
     qsub_params['config'] = sys.argv[1]
