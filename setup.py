@@ -10,7 +10,6 @@ setup(
     author='Hervé Bredin',
     author_email='bredin@limsi.fr',
     url='https://github.com/hbredin/pyjob',
-    # packages= find_packages(),
     packages=['pyjob'],
     package_data={'pyjob': ['templates/qsub.py']},
     install_requires=['numpy >=1.6.1', ],
