@@ -12,7 +12,8 @@ setup(
     url='https://github.com/hbredin/pyjob',
     packages=['pyjob'],
     package_data={'pyjob': ['templates/qsub.py']},
-    install_requires=['numpy >=1.6.1', ],
+    install_requires=['numpy >=1.6.1', 
+                      'configobj >=4.7.2'],
     classifiers=[ 
        "Development Status :: 4 - Beta", 
        "Intended Audience :: Science/Research", 
