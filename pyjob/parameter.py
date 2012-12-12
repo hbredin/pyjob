@@ -45,7 +45,7 @@ class Range(object):
     
     @classmethod
     def from_cfg(cls, config):
-        return cls(int(config[0]), int(config[1]), int(config[2]))
+        return cls(float(config[0]), float(config[1]), float(config[2]))
     
     def __init__(self, start, stop, step):
         choices = list(np.arange(start, stop, step))
