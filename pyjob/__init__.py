@@ -29,6 +29,7 @@ __version__ = '0.1'
 
 from grid import Grid
 from parameter import Choices, Range
+from template import CommandTemplate, QSubTemplate
 
 if __name__ == '__main__':
     import doctest
