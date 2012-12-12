@@ -8,9 +8,11 @@
 
 from pyjob import Grid
 from pyjob import CommandTemplate
-import os
+import subprocess
 
 execfile('$config')
 grid_search = Grid(grid_params)
 this_job_params = grid_search[int(os.environ['SGE_TASK_ID'])]
-os.system(CommandTemplate('$command').substitute(this_job_params))
+command = CommandTemplate('$command').substitute(this_job_params)
+p = subprocess.Popen(command, shell=True)
+
