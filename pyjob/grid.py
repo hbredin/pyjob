@@ -22,6 +22,7 @@ import sys, os
 from tempfile import mkstemp
 import pkg_resources
 from template import QSubTemplate
+import subprocess
 
 class Grid(object):
     
@@ -87,5 +88,6 @@ if __name__ == "__main__":
         f.write(qsub_py)
     
     # submit the job
-    print 'qsub %s' % path
-    # os.system('qsub %s' % path)
+    qsub_msg = subprocess.check_output('qsub %s' % path)
+    print qsub_msg
+    
