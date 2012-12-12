@@ -14,7 +14,7 @@ import subprocess
 
 execfile('$config')
 grid_search = Grid(grid_params)
-this_job_params = grid_search[int(os.environ['SGE_TASK_ID'])]
+this_job_params = grid_search[int(os.environ['SGE_TASK_ID'])-1]
 
 command = CommandTemplate('$command').substitute(this_job_params)
 os.system(command)
