@@ -15,4 +15,5 @@ grid_params = {'alpha': Range(0.,1.1,0.1),
 qsub_params = {'queue': '48giga.q',
                'job_name': 'ss.D',
                'concurrent_jobs': 20,
+               'threads': 12,
                }
