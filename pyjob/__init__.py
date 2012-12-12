@@ -28,7 +28,7 @@ __author__ = 'Herve Bredin <bredin@limsi.fr>'
 __version__ = '0.1'
 
 from grid import Grid
-from parameter import Choices, Range
+from parameter import Choice, Range
 from template import CommandTemplate, QSubTemplate
 
 if __name__ == '__main__':
