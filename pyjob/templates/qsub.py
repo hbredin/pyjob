@@ -8,6 +8,7 @@
 
 from pyjob import Grid
 from pyjob import CommandTemplate
+import os
 import subprocess
 
 execfile('$config')
