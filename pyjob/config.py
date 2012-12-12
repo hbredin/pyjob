@@ -34,5 +34,5 @@ def get_grid_params(config):
     grid_params = {}
     for name in config:
          Parameter = key2param[config[name][0]]
-         grid_params[name] = Parameter(config[name][1:])
+         grid_params[name] = Parameter.from_cfg(config[name][1:])
     return grid_params
