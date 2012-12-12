@@ -41,7 +41,7 @@ class Choice(object):
     def __getitem__(self, key):
         return self.choices[key]
 
-class Range(object):
+class Range(Choice):
     
     @classmethod
     def from_cfg(cls, config):
