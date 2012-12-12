@@ -8,6 +8,7 @@
 
 from pyjob import Grid
 from pyjob import CommandTemplate
+import os
 
 execfile('$config')
 grid_search = Grid(grid_params)
