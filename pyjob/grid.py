@@ -88,6 +88,6 @@ if __name__ == "__main__":
         f.write(qsub_py)
     
     # submit the job
-    qsub_msg = subprocess.check_output('qsub %s' % path)
+    qsub_msg = subprocess.check_output(['qsub',path])
     print qsub_msg
     
