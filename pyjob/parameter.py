@@ -36,7 +36,7 @@ class Choice(object):
         return len(self.choices)
     
     def __iter__(self):
-        return iter(choices)
+        return iter(self.choices)
     
     def __getitem__(self, key):
         return self.choices[key]
@@ -51,3 +51,13 @@ class Range(Choice):
         choices = list(np.arange(start, stop, step))
         super(Range, self).__init__(choices)
 
+class FileContent(Choice):
+    
+    @classmethod
+    def from_cfg(cls, config):
+        return cls(config[0])
+    
+    def __init__(self, path):
+        wit open(path, 'r') as f:
+            choices = [line.strip() for line in f]
+        super(FileContent, self).__init__(choices)

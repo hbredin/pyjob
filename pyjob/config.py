@@ -19,11 +19,12 @@
 #     along with pyjob.  If not, see <http://www.gnu.org/licenses/>.
 
 from configobj import ConfigObj
-from parameter import Range, Choice
+from parameter import Range, Choice, FileContent
 from os.path import expanduser
 
 key2param = {'RANGE': Range, 
-             'CHOICE': Choice}
+             'CHOICE': Choice,
+             'FILE': FileContent}
 
 def read_configuration_file(filename):
     config = ConfigObj(filename)
@@ -54,6 +55,17 @@ def get_qsub_params(config):
     return qsub_params
 
 def get_grid_params(config):
+    """
+    Parameters
+    ----------
+    config : dict
+        {param: list} dictionary (e.g. 'alpha': ['RANGE', '0', '10', '1'])
+    
+    Returns
+    -------
+    grid : dict
+        {param: Parameter instance} dictionary (e.g. 'alpha': Range(0,10,1))
+    """
     grid_params = {}
     for name in config:
          Parameter = key2param[config[name][0]]
