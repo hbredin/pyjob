@@ -58,6 +58,6 @@ class FileContent(Choice):
         return cls(config[0])
     
     def __init__(self, path):
-        wit open(path, 'r') as f:
+        with open(path, 'r') as f:
             choices = [line.strip() for line in f]
         super(FileContent, self).__init__(choices)
