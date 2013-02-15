@@ -19,12 +19,14 @@
 #     along with pyjob.  If not, see <http://www.gnu.org/licenses/>.
 
 from configobj import ConfigObj
-from parameter import Range, Choice, FileContent
+from parameter import Range, Choice, FileContent, UniqueValue
 from os.path import expanduser
 
 key2param = {'RANGE': Range, 
              'CHOICE': Choice,
-             'FILE': FileContent}
+             'FILE': FileContent,
+             'VALUE': UniqueValue,
+             }
 
 def read_configuration_file(filename):
     config = ConfigObj(filename)

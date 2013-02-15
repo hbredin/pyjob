@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # encoding: utf-8
 
-# Copyright 2012 Herve BREDIN (bredin@limsi.fr)
+# Copyright 2012-2013 Herve BREDIN (bredin@limsi.fr)
 
 # This file is part of pyjob.
 # 
@@ -28,7 +28,7 @@ __author__ = 'Herve Bredin <bredin@limsi.fr>'
 __version__ = '0.1'
 
 from grid import Grid
-from parameter import Choice, Range
+from parameter import Choice, Range, FileContent, UniqueValue
 from template import CommandTemplate, QSubTemplate
 
 if __name__ == '__main__':

@@ -21,7 +21,11 @@
 import numpy as np
 
 class Choice(object):
-    
+    """
+    Syntax
+    ------
+    param = CHOICE, choice1, choice2, ..., choiceN
+    """
     @classmethod
     def from_cfg(cls, config):
         return cls(config)
@@ -42,6 +46,11 @@ class Choice(object):
         return self.choices[key]
 
 class Range(Choice):
+    """
+    Syntax
+    ------
+    param = RANGE, start, stop, step
+    """
     
     @classmethod
     def from_cfg(cls, config):
@@ -52,7 +61,11 @@ class Range(Choice):
         super(Range, self).__init__(choices)
 
 class FileContent(Choice):
-    
+    """
+    Syntax
+    ------
+    param = FILE, path/to/file
+    """
     @classmethod
     def from_cfg(cls, config):
         return cls(config[0])
@@ -61,3 +74,17 @@ class FileContent(Choice):
         with open(path, 'r') as f:
             choices = [line.strip() for line in f]
         super(FileContent, self).__init__(choices)
+
+class UniqueValue(Choice):
+    """
+    Syntax
+    ------
+    param = VALUE, value
+    """
+    
+    @classmethod:
+    def from_cfg(cls, config):
+        return cls(config[0])
+    
+    def __init__(self, value):
+        super(UniqueValue, self).__init__([value])
